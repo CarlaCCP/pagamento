@@ -1,10 +1,10 @@
 spring:
   application:
     name: pagamento
-#  data:
-#    mongodb:
-#      uri: ${MONGO_URL}
-##      uri: mongodb://localhost:27017/loja
-#      auto-index-creation: true
+aws:
+  accessKey: ${AWS_ACCESS_KEY}
+  secretKey: ${AWS_SECRET_KEY}
+  sessionToken: ${AWS_SESSION_TOKEN}
+  region: us-east-1
 server:
   port: 8081
