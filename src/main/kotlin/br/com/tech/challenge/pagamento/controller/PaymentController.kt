@@ -4,14 +4,16 @@ import br.com.tech.challenge.pagamento.config.PaymentConfig
 import br.com.tech.challenge.pagamento.core.entity.Payment
 import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
 import br.com.tech.challenge.pagamento.interfaces.IClient
-import br.com.tech.challenge.pagamento.interfaces.gateway.IPaymentGateway
+import br.com.tech.challenge.pagamento.gateway.IPaymentGateway
+import br.com.tech.challenge.pagamento.usecase.PaymentUseCase
 import mu.KotlinLogging
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
 class PaymentController(
 
-  private val paymentConfig: PaymentConfig
+  @Autowired val paymentConfig: PaymentConfig,
 ) {
 
   private val log = KotlinLogging.logger {}

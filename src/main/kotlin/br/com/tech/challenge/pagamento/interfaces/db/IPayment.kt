@@ -1,16 +1,15 @@
 package br.com.tech.challenge.pagamento.interfaces.db
 
 import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable
-import org.springframework.data.annotation.Id
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
-@DynamoDBTable(tableName = "pagamento")
+//@Entity(name = "pagamento")
 interface IPayment {
-  @get:DynamoDBHashKey
-  @get:Id
-  val id: String?
-  @get:DynamoDBAttribute
-  val event: PaymentEvent
+//  @get:Id
+//  @get:GeneratedValue(strategy = GenerationType.AUTO)
+  var id: String?
+  var event: PaymentEvent
 }

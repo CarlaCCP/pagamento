@@ -3,8 +3,10 @@ package br.com.tech.challenge.pagamento.usecase
 import br.com.tech.challenge.pagamento.core.entity.Payment
 import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
 import br.com.tech.challenge.pagamento.interfaces.IClient
-import br.com.tech.challenge.pagamento.interfaces.gateway.IPaymentGateway
+import br.com.tech.challenge.pagamento.gateway.IPaymentGateway
+import org.springframework.stereotype.Service
 
+@Service
 class PaymentUseCase {
 
   fun createPayment(paymentGateway: IPaymentGateway, id: String): Payment =
@@ -13,7 +15,7 @@ class PaymentUseCase {
     )
 
   fun updatePayment(paymentGateway: IPaymentGateway, id: String, paymentIClient: IClient): Payment? {
-    val payment = paymentGateway.findById(id)
+    val payment = paymentGateway.findById(id).get()
     return if (payment != null) {
       val paymentSaved = paymentGateway.save(
         payment.copy(event = PaymentEvent.APPROVED)
@@ -25,7 +27,7 @@ class PaymentUseCase {
   }
 
   fun getPayment(paymentGateway: IPaymentGateway, id: String) : Payment? {
-    return paymentGateway.findById(id)
+    return paymentGateway.findById(id).get()
   }
 
 }
