@@ -2,7 +2,9 @@ name: ci + cd
 
 on:
   push:
-    branches: develop
+    branches: main
+  pull_request:
+    types: [ opened, reopened ]
 
 jobs:
      login:
