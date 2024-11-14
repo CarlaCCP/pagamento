@@ -5,4 +5,4 @@ metadata:
   labels:
     name: payment-config
 data:
-  MYSQL_URL: jdbc:mysql://svc-mysql:3306/pagamento_db
+  MYSQL_URL: jdbc:mysql://svc-mysql/pagamento_db

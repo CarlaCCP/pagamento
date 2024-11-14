@@ -10,3 +10,12 @@ spec:
       image: mysql
       ports:
         - containerPort: 3306
+      env:
+        - name: MYSQL_DATABASE
+          value: "pagamento_db"
+        - name: MYSQL_USER
+          value: "payment"
+        - name: MYSQL_PASSWORD
+          value: "payment"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"

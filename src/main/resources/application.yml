@@ -2,16 +2,18 @@ spring:
   datasource:
 #    url: jdbc:mysql://localhost:3306/pagamento_db
     url: ${MYSQL_URL}
-    username: springuser
-    password: ThePassword
+    username: payment
+    password: payment
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
     properties:
       hibernate:
+        boot:
+          allow_metadata_access: false
         format_sql: true
         cache:
           use_second_level_cache: false

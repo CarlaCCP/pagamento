@@ -21,8 +21,8 @@ spec:
           ports:
             - containerPort: 8081
           env:
-            - name: MONGO_URL
+            - name: MYSQL_URL
               valueFrom:
                 configMapKeyRef:
                   name: payment-config
-                  key: MONGO_URL
+                  key: MYSQL_URL
