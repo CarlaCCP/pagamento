@@ -1,11 +1,7 @@
 package br.com.tech.challenge.pagamento.core.entity
 
 import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import java.util.*
 
 @Entity
@@ -13,8 +9,10 @@ import java.util.*
 data class Payment(
   @Id
   var id: String? = null,
+
+  @Enumerated(EnumType.ORDINAL)
   var event: PaymentEvent? = null,
-  val orderId: String? = null
+//  val orderId: String? = null
 ) {
 
 }

@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
 
 @RequestMapping("/payment")
 @Validated
-@Controller
+@RestController
 class PaymentApi(
   private val paymentGateway: IPaymentGateway,
   private val paymentController: PaymentController,
