@@ -5,6 +5,7 @@ import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
 import br.com.tech.challenge.pagamento.interfaces.IClient
 import br.com.tech.challenge.pagamento.gateway.IPaymentGateway
 import org.springframework.stereotype.Service
+import kotlin.jvm.optionals.getOrNull
 
 @Service
 class PaymentUseCase {
@@ -15,7 +16,7 @@ class PaymentUseCase {
     )
 
   fun updatePayment(paymentGateway: IPaymentGateway, id: String, paymentIClient: IClient): Payment? {
-    val payment = paymentGateway.findById(id).get()
+    val payment = paymentGateway.findById(id).getOrNull()
     return if (payment != null) {
       val paymentSaved = paymentGateway.save(
         payment.copy(event = PaymentEvent.APPROVED)
