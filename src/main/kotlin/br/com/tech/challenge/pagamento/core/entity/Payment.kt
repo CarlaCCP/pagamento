@@ -1,10 +1,18 @@
 package br.com.tech.challenge.pagamento.core.entity
 
 import br.com.tech.challenge.pagamento.core.valueObject.PaymentEvent
-import br.com.tech.challenge.pagamento.interfaces.db.IPayment
+import jakarta.persistence.*
 import java.util.*
 
+@Entity
+@Table(name = "pagamento")
 data class Payment(
-  override val id: String? = UUID.randomUUID().toString(),
-  override val event: PaymentEvent
-): IPayment
+  @Id
+  var id: String? = null,
+
+  @Enumerated(EnumType.ORDINAL)
+  var event: PaymentEvent? = null,
+//  val orderId: String? = null
+) {
+
+}

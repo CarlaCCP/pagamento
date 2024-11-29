@@ -5,4 +5,4 @@ metadata:
   labels:
     name: payment-config
 data:
-  MONGO_URL: mongodb://svc-mongo/loja
+  MYSQL_URL: jdbc:mysql://svc-mysql/pagamento_db

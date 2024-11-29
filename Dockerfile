@@ -17,13 +17,8 @@ FROM eclipse-temurin:17-jdk-jammy
 VOLUME /tmp
 
 ARG EXTRACTED=/workspace/app/target/extracted
-ARG AWS_ACCESS_KEY_ID
-ARG AWS_SECRET_ACCESS_KEY
-ARG AWS_SESSION_TOKEN
 
-ENV AWS_ACCESS_KEY=${AWS_ACCESS_KEY_ID}
-ENV AWS_SECRET_KEY=${AWS_SECRET_ACCESS_KEY}
-ENV AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
+ENV MYSQL_URL=""
 
 COPY --from=build ${EXTRACTED}/dependencies/ ./
 COPY --from=build ${EXTRACTED}/spring-boot-loader/ ./
