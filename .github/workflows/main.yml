@@ -7,7 +7,7 @@ on:
 #    types: [ opened, reopened, synchronize ]
 
 jobs:
-     build:
+     login:
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v1
@@ -26,7 +26,7 @@ jobs:
              docker image tag pagamento-pagamento ${{ secrets.DOCKERHUB_USERNAME }}/pagamento-techchallenge
              docker push ${{ secrets.DOCKERHUB_USERNAME }}/pagamento-techchallenge
 
-     cd:
+     deploy:
       needs: login
       runs-on: ubuntu-latest
       steps:
